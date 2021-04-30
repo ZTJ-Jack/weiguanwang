@@ -1,27 +1,79 @@
 <template>
   <div id="datacenter">
+     <div class="nav">
+      <div @click="routerbank">〈</div>
+      <div class="title"></div>
+      <div></div>
+    </div>
     <!-- <div class="search">
       <input type="text" placeholder="搜索" />
     </div> -->
-    <div class="listdiv" v-for="(item,index) in 15" :key="index">
-      <div class="pic"></div>
+    <div class="listdiv" v-for="(item,index) in Datalist" :key="index" @click="itemDetails(item)">
+      <div class="pic"><img :src="item.materialLogo" alt=""></div>
       <div class="main">
-        <div>名称名称名称名称名称名称</div>
-        <div>2个月前</div>
+        <div>{{item.category}}</div>
+        <div>{{item.createTime}}</div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { getmaterial } from "@/api/api.js";
 export default {
   name: "datacenter",
   data() {
     return {
+      page:1,
+      limit:1,
       Datalist: []
     };
   },
+  created(){
+    this.getdata()
+  },
   methods: {
+     timestampToTime(timestamp) {
+        var date = new Date(timestamp ); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
+        let Y = date.getFullYear() + '-';
+        let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+        let D = this.change(date.getDate()) + ' ';
+        let h = this.change(date.getHours()) + ':';
+        let m = this.change(date.getMinutes()) + ':';
+        let s = this.change(date.getSeconds());
+        return Y + M + D + h + m + s;
+    },
+    change(t) {
+        if (t < 10) {
+            return "0" + t;
+        } else {
+            return t;
+        }
+    },
+    getdata(){
+      let parmas={
+        start:this.page,
+        length:this.limit,
+        materialName:this.$route.query.materialName,
+        category:this.$route.query.category,
+      }
+      getmaterial(parmas).then(res=>{
+        console.log(res);
+        if(res.status==200){
+          res.data.data.forEach(item => {
+            this.$set(item,'createTime',this.timestampToTime(item.createTime))
+          })
+          this.Datalist=res.data.data
+        }
+        
+      })
+    },
+    itemDetails(item){
+      this.$router.push({
+        path:'/DataDetails',
+        query:item
+      })
+    },
     routerbank() {
       this.$router.go(-1);
     }
@@ -76,11 +128,16 @@ export default {
     display: flex;
     padding: 10px;
     margin: 10px 15px;
+    margin-top: 40px;
     border-bottom: 1px solid #eeeeee;
     .pic {
       width: 80px;
       height: 80px;
-      border: 1px black solid;
+      /* border: 1px black solid; */
+      img{
+        width: 100%;
+        height: 100%;
+      }
     }
     .main {
       display: flex;

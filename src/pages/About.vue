@@ -1,5 +1,10 @@
 <template>
   <div>
+    <div class="headernav">
+      <div @click="routerbank">〈</div>
+      <div class="title"></div>
+      <div></div>
+    </div>
     <img src="http://www.zhrobot888.com/skins/224557/images/bn11.jpg" alt="" class="headerpic">
     <div class="main">
       <div class="main-content">
@@ -70,6 +75,9 @@ export default {
   methods:{
     navto(urls){
       this.$router.push(urls)
+    },
+    routerbank() {
+      this.$router.go(-1);
     }
   }
 };
@@ -77,9 +85,24 @@ export default {
 
 <style lang="scss" scoped>
 .headerpic {
+  margin-top: 40px;
   width: 100%;
   display: block;
 }
+.headernav {
+    background: #ffffff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    box-sizing: border-box;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    line-height: 40px;
+    .title {
+      text-align: center;
+    }
+  }
 .main {
   padding: 10px 10px;
   .nav {

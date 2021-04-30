@@ -1,13 +1,18 @@
 <template>
   <div id="MarketActivity">
+    <div class="headernav">
+      <div @click="routerbank">〈</div>
+      <div class="title"></div>
+      <div></div>
+    </div>
     <img
       src="../assets/images/add99.jpg"
       alt=""
       style="display: block; width: 100%"
     />
     <div class="search">
-      <input type="text" placeholder="请输入搜索内容" />
-      <div class="btn">搜索</div>
+      <input type="text" v-model="searchs" placeholder="请输入搜索内容" />
+      <div class="btn" @click="getdata">搜索</div>
     </div>
     <div style="padding: 10px; overflow: hidden">
       <div
@@ -33,16 +38,16 @@
           <div class="flex">
             <div class="left">
               <div style="display: flex">
-                <div
+                <span
                   style="
                     background: #ff950c;
                     padding: 2px 5px;
-                    width: 30px;
+                   
                     text-align: center;
                   "
                 >
-                  {{ item.type }}
-                </div>
+                  {{ item.showFlag }}
+                </span>
                 <div
                   style="
                     margin-left: 10px;
@@ -56,8 +61,8 @@
                   结束
                 </div>
               </div>
-              <div style="font-size: 16px; margin: 5px 0">{{ item.name }}</div>
-              <div class="h30 time">time：{{ item.time }}</div>
+              <div style="font-size: 16px; margin: 5px 0">{{ item.exhibitionName }}</div>
+              <div class="h30">{{ item.startTime }}</div>
               <div class="h30 address">地址：{{ item.address }}</div>
             </div>
             <div class="right"></div>
@@ -68,9 +73,9 @@
           style="padding: 0 20px"
           class="wow bounceInUp"
         >
-          <div class="h30">time：{{ item.time }}</div>
+          <!-- <div class="h30">time：{{ item.time }}</div> -->
           <div class="h30">地址：{{ item.address }}</div>
-          <div class="h30">座位号：{{ item.SeatNumber }}</div>
+          <div class="h30">座位号：{{ item.positionNum }}</div>
         </div>
       </div>
       <div></div>
@@ -80,11 +85,14 @@
 
 <script>
 import { getexhibitionIn } from "@/api/api.js";
+import { log } from 'util';
 export default {
   name: "MarketActivity",
   data() {
     return {
       searchs: "",
+      page:1,
+      limit:10,
       showdetails: false,
       showindex: -1,
       Datalist: [
@@ -124,17 +132,48 @@ export default {
     };
   },
   created() {
-    let parmas = {
-      page: 1,
-      limit: 10,
-      exhibitionName: this.searchs,
-      address: this.searchs,
-    };
-    getexhibitionIn(parmas).then((res) => {
-      console.log(res);
-    });
+   this.getdata()
   },
   methods: {
+    getdata(){
+      console.log(this.searchs);
+      
+       let parmas = {
+          page: this.page,
+          limit: this.limit,
+          exhibitionName: this.searchs,
+          address: this.searchs,
+        };
+        getexhibitionIn(parmas).then((res) => {
+          console.log(res);
+          if(res.status==200){
+            res.data.data.forEach(item => {
+              this.$set(item,'createTime',this.timestampToTime(item.createTime))
+              this.$set(item,'endTime',this.timestampToTime(item.endTime))
+              this.$set(item,'startTime',this.timestampToTime(item.startTime))
+            });
+            this.Datalist=res.data.data
+            console.log(' this.Datalis',this.Datalist);
+          }
+        });
+    },
+    timestampToTime(timestamp) {
+        var date = new Date(timestamp ); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
+        let Y = date.getFullYear() + '-';
+        let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+        let D = this.change(date.getDate()) + ' ';
+        let h = this.change(date.getHours()) + ':';
+        let m = this.change(date.getMinutes()) + ':';
+        let s = this.change(date.getSeconds());
+        return Y + M + D + h + m + s;
+    },
+    change(t) {
+        if (t < 10) {
+            return "0" + t;
+        } else {
+            return t;
+        }
+    },
     routerbank() {
       this.$router.go(-1);
     },
@@ -150,6 +189,20 @@ export default {
 </script>
 
 <style lang="scss" scoped >
+.headernav {
+    /* background: #ffffff; */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    box-sizing: border-box;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    line-height: 40px;
+    .title {
+      text-align: center;
+    }
+  }
 .search {
   background: #eee;
   border-bottom: 1px solid #dedede;

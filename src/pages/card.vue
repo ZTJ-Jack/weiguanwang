@@ -1,5 +1,10 @@
 <template>
   <div class="main">
+     <div class="headernav">
+      <div @click="routerbank">〈</div>
+      <div class="title"></div>
+      <div></div>
+    </div>
       <div class="conter wow bounceIn" v-for="(item,index) in 5" :key="index">
           <div class="left">
               <div>嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿</div>
@@ -30,6 +35,20 @@ export default {
 </script>
 
 <style lang="scss" scoped >
+.headernav {
+    background: #ffffff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    box-sizing: border-box;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    line-height: 40px;
+    .title {
+      text-align: center;
+    }
+  }
 .main{
   background: #fff;
   overflow: hidden;
@@ -38,6 +57,7 @@ export default {
         display:flex;
         margin:10px;
         padding:10px;
+        margin-top: 40px;
         border-bottom: 1px solid #eee;
         .left{
             flex:1;

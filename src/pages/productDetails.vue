@@ -1,5 +1,5 @@
 <template>
-  <div id="datacenter" style="height:100vh;">
+  <div id="productDetails" style="height:100vh;">
     
     <div class="nav">
       <div @click="routerbank">〈</div>
@@ -10,7 +10,7 @@
       
 
     </div>
-    <iframe class="vh" :src="$route.query.materialDoc" width="100%" height="94%">
+    <iframe class="vh" :src="$route.query.productUrl" width="100%" height="94%">
        
 </iframe>
   </div>
@@ -18,11 +18,15 @@
 
 <script>
 export default {
-  name: "datadetails",
+  name: "productDetails",
   data() {
     return {
       Datalist: []
     };
+  },
+  created(){
+      console.log(this.$route.query);
+      
   },
   methods: {
     routerbank() {
@@ -33,7 +37,7 @@ export default {
 </script>
 
 <style lang="scss" scoped >
-#datacenter {
+#productDetails {
   box-sizing: border-box;
   margin-top: 40px;
   font-size: 14px;

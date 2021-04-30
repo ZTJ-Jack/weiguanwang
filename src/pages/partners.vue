@@ -1,5 +1,10 @@
 <template>
   <div id="partners">
+      <div class="headernav">
+      <div @click="routerbank">〈</div>
+      <div class="title"></div>
+      <div></div>
+    </div>
       <div class="imgs">
        <van-image
             class="navImg wow lightSpeedIn"
@@ -37,12 +42,30 @@
 
 <script>
 export default {
-
+    methods:{
+        routerbank(){
+            this.$router.go(-1)
+        }
+    }
 }
 </script>
 
 <style lang="scss" scoped >
 #partners{
+    .headernav {
+    /* background: #ffffff; */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    box-sizing: border-box;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    line-height: 40px;
+    .title {
+      text-align: center;
+    }
+  }
      background: url("~@/assets/images/1111111.png") center left no-repeat;
      width: 100%;
      min-height: 100vh;

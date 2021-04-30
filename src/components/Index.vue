@@ -95,7 +95,7 @@
               fit="cover"
             />
           </a>
-           <router-link class="one" :to="{path:'/datacenter'}">
+           <router-link class="one" :to="{path:'/ziliaOnav'}">
             <span>资源下载</span>
             <van-image
               class="navImg wow lightSpeedIn"

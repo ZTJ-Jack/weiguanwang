@@ -1,18 +1,24 @@
 <template>
   <div id="datacenter">
-    <div class="search">
-      <input type="text" placeholder="搜索" />
+    <div class="nav">
+      <div @click="routerbank">〈</div>
+      <div class="title"></div>
+      <div></div>
     </div>
-    <div class="listdiv" v-for="(item,index) in 5" :key="index">
+    <div class="search">
+      <input type="text" v-model="searchs" placeholder="搜索" />
+    </div>
+    <div class="listdiv" v-for="(item,index) in Datalist" :key="index" @click="itemDetails(item)">
       <div class="pic">
             <van-image
               class="navImg wow lightSpeedIn"
               :src="require('../assets/images/icon8.png')"
               fit="cover"
-            />
+            />  
       </div>
       <div class="main">
-        <div>名称名称名称名称名称名称</div>
+        <!-- {{item}} -->
+        <div>{{item.category}}</div>
         <div>2个月前</div>
       </div>
     </div>
@@ -20,16 +26,56 @@
 </template>
 
 <script>
+import { getmaterialCategory } from "@/api/api.js";
+
 export default {
   name: "ziliaOnv",
   data() {
     return {
+      searchs:'',
       Datalist: []
     };
   },
+  created(){
+    this.getdata()
+  },
   methods: {
-
-  }
+    getdata(){
+      let parmas ={
+        category:this.searchs
+      }
+      getmaterialCategory(parmas).then(res=>{
+        console.log(res);
+        
+        if(res.status==200){
+          this.Datalist=res.data.data
+        }
+        // console.log(res.data);
+      })
+    },
+    itemDetails(item){
+      this.$router.push({
+        path:'/DataCenter',
+        query:{
+          materialName:item.description,
+          category:item.category,
+        }
+      })
+    },
+    routerbank() {
+      this.$router.go(-1);
+    }
+  },
+  watch: {
+        searchs: function (newVal, oldVal) {
+            console.log("newVal:", newVal);
+            console.log("oldVal:", oldVal);
+            if(newVal){
+              this.searchs=newVal
+              this.getdata()
+            }
+        }
+    },
 };
 </script>
 

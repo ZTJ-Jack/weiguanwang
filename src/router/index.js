@@ -105,5 +105,10 @@ export default new Router({
       name: 'loopbo',
       component: () => import('@/pages/loopbo.vue')
     },
+    {
+      path: '/productDetails',
+      name: 'productDetails',
+      component: () => import('@/pages/productDetails.vue')
+    },
   ]
 })

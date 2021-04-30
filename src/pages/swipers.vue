@@ -1,5 +1,10 @@
 <template>
   <div id="" >
+    <div class="headernav">
+      <div @click="routerbank">〈</div>
+      <div class="title"></div>
+      <div></div>
+    </div>
     <van-swipe :loop="false" :width="300" :height="400">
       <van-swipe-item>
           <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20171105%2Fe2343ce075ee4730aa3e14999e0f8c20.png&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1622183257&t=369c223d3833216a7a2771092f15e8d3" alt="">
@@ -53,6 +58,21 @@ export default {
 </script>
 
 <style lang="scss" scoped >
+.headernav {
+    /* background: #ffffff; */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    box-sizing: border-box;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    line-height: 40px;
+    z-index:999999;
+    .title {
+      text-align: center;
+    }
+  }
 .my-swipe{
   .van-swipe-item {
     color: #fff;
