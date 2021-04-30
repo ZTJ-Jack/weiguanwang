@@ -10,7 +10,7 @@
 哲宏人坚持“质量赢得市场，诚信铸就哲宏”的管理理念，并以不断创新、持续发展、快速响应、降低客户成本为已任，与广大客户协同进步成长。
 上海哲宏期待与您真诚合作，携手创造美好的未来!
 </div>
-        <div class="morebtn">More ></div>
+        <div class="morebtn" @click="navto('/CompanyProfile')">More ></div>
       </div>
       <img src="../assets/images/ny_banner.png" class="pic" alt="">
       <!-- <div class="tonav">
@@ -34,7 +34,7 @@
         社会需求、根植地域的活动。<br/>通过对科学技术、文化艺术、体育的支援活
         动，进行培育下一代的活动。
       </div>
-      <div class="morebtn2">More ></div>
+      <div class="morebtn2" @click="navto('/details')">More ></div>
     </div>
     <div class="main">
       <img class="headerpic" src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1434395224,473339843&fm=26&gp=0.jpg" alt="">
@@ -51,7 +51,7 @@
              <div class="main-content-text">
                  三菱电机自动化拥有遍布全国的销售/服务网络，为您提供高效可信赖的支持和服务，为全球化的客户提供强大支持。
              </div>
-            <div class="morebtn">More ></div>
+            <div class="morebtn" @click="navto('/ContactUs')">More ></div>
          </div>
     </div>
   </div>

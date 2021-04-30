@@ -1,5 +1,6 @@
 <template>
   <div class="details">
+      <img style="display:block;width:100%;" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161111%2F7ba83958e21b42e2b8d9afc8c0bf2f36_th.png&refer=http%3A%2F%2Fimg.mp.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1622388025&t=6dec5a42227634c9685d067cc75d0438" alt="">
     <div class="main">
       <div class="main-title">
         <div class="main-title-icon">▶</div>
@@ -101,6 +102,8 @@ export default {};
 
 <style lang="scss" scoped>
 .details {
+  overflow: hidden;
+  background: #fff;
   .main {
     margin: 20px 0;
     padding: 0 20px;

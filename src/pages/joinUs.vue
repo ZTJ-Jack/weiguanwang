@@ -32,7 +32,7 @@
       <div class="hotzhiweI">
           <div class="hotzhiweItit">
              <div class="left">招聘职位</div>
-             <div class="right">查看全部&nbsp;></div>
+             <div class="right" @click="turnto('/recruitment')">查看全部&nbsp;></div>
           </div>
          <div class="li">
              <div class="left">招聘职位</div>
@@ -66,7 +66,9 @@ export default {
    
   },
   methods:{
-  
+  turnto(urls){
+    this.$router.push(urls)
+  }
   }
 };
 </script>

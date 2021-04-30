@@ -37,7 +37,6 @@
         <bm-marker :position="map.center" :dragging="map.dragging" animation="BMAP_ANIMATION_DROP">
             <!--提示信息-->
             <bm-info-window :show="map.show"><span style="line-height:30px;">上海市嘉定区恒永路328弄38号2层A区<br>联系电话：13298388830</span></bm-info-window>
-            
         </bm-marker>
       </baidu-map>
       <div style="width:100%;padding-bottom:30px;"></div>
