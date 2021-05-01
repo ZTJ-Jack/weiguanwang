@@ -93,7 +93,7 @@ export default {
 .bot{
     position: absolute;
     width: 100%;
-    background-color:rgba(0,0,0,.5);
+    background-color:rgba(0,0,0,.4);
     color:#fff;
     display: flex;
     flex-direction:column;
