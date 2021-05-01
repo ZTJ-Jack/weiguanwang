@@ -1,5 +1,10 @@
 <template>
   <div id="CompanyProfile">
+    <div class="headernav">
+      <div @click="routerbank">〈</div>
+      <div class="title"></div>
+      <div></div>
+    </div>
     <img  style="display:block;width:100%;" src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1837733770,1880405991&fm=26&gp=0.jpg" alt="">
     <div class="main">
       <div class="main-title">
@@ -124,11 +129,29 @@ export default {
     }, 100)
   },
   methods:{
+    
+    routerbank() {
+      this.$router.go(-1);
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.headernav {
+    /* background: #ffffff; */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    box-sizing: border-box;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    line-height: 40px;
+    .title {
+      text-align: center;
+    }
+  }
 .swiper-container{
   height: 700px;
   .swiper-slide{

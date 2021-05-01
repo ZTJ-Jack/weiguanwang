@@ -1,5 +1,10 @@
 <template>
   <div class="content">
+      <div class="headernav">
+      <div @click="routerbank">〈</div>
+      <div class="title"></div>
+      <div></div>
+    </div>
       <img src="../assets/images/bn1.png" alt="">
       <div class="inner">
         <div class="tit">加入我们</div>
@@ -68,12 +73,30 @@ export default {
   methods:{
   turnto(urls){
     this.$router.push(urls)
-  }
+  }, 
+  routerbank() {
+      this.$router.go(-1);
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.headernav {
+  /* background: #ffffff; */
+  position: fixed;
+  color: #ffffff;
+  width: 100%;
+  top: 0;
+  box-sizing: border-box;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  line-height: 40px;
+  .title {
+    text-align: center;
+  }
+}
 .hotzhiweI{
     width: 355px;
     padding: 10px;

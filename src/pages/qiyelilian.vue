@@ -1,5 +1,10 @@
 <template>
   <div class="content">
+      <div class="headernav">
+        <div @click="routerbank">〈</div>
+        <div class="title"></div>
+        <div></div>
+    </div>
       <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20180131%2Fe74f92ace17643338e3ff0b105480468.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1622306489&t=484c03f0d5d1039572423920073ed55d" alt="">
       <div class="inner">
         <div class="tit">企业理念</div>
@@ -37,11 +42,28 @@ export default {
   },
   methods:{
   
+    routerbank() {
+      this.$router.go(-1);
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.headernav {
+    /* background: #ffffff; */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    box-sizing: border-box;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    line-height: 40px;
+    .title {
+      text-align: center;
+    }
+  }
     .content{
         overflow: hidden;
         min-height: 100vh;

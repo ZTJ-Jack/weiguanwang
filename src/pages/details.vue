@@ -1,6 +1,15 @@
 <template>
   <div class="details">
-      <img style="display:block;width:100%;" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161111%2F7ba83958e21b42e2b8d9afc8c0bf2f36_th.png&refer=http%3A%2F%2Fimg.mp.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1622388025&t=6dec5a42227634c9685d067cc75d0438" alt="">
+    <div class="headernav">
+      <div @click="routerbank">〈</div>
+      <div class="title"></div>
+      <div></div>
+    </div>
+    <img
+      style="display:block;width:100%;"
+      src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161111%2F7ba83958e21b42e2b8d9afc8c0bf2f36_th.png&refer=http%3A%2F%2Fimg.mp.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1622388025&t=6dec5a42227634c9685d067cc75d0438"
+      alt
+    />
     <div class="main">
       <div class="main-title">
         <div class="main-title-icon">▶</div>
@@ -19,13 +28,13 @@
         <div class="main-title-icon">▶</div>
         <div class="main-title-text">绿色发展与智能制造相融合</div>
       </div>
-      <div class="main-content">
-        从生产流程设计、产线布局规划、自动化设备的导入、生产管理系统的导入、数据采集和分析等各个阶段,向客户输出上海哲宏的核心技术实现智能制造的同时,还应考虑绿色制造,必须要解决生产效率优化、能源效率优化、设备运转优化等问题,同时平衡环境负荷,促进企业的综合效率提升。
-      </div>
+      <div
+        class="main-content"
+      >从生产流程设计、产线布局规划、自动化设备的导入、生产管理系统的导入、数据采集和分析等各个阶段,向客户输出上海哲宏的核心技术实现智能制造的同时,还应考虑绿色制造,必须要解决生产效率优化、能源效率优化、设备运转优化等问题,同时平衡环境负荷,促进企业的综合效率提升。</div>
       <div class="main-pic">
         <img
           src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.chinajsjgy.com%2Fvipcom%2Fgentle9257%2F127162289.jpg&refer=http%3A%2F%2Fwww.chinajsjgy.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1622364971&t=f083585df9d670692adb3711765a1128"
-          alt=""
+          alt
         />
       </div>
       <div class="main-title">
@@ -39,7 +48,7 @@
       <div class="main-pic">
         <img
           src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.chinajsjgy.com%2Fvipcom%2Fgentle9257%2F127162289.jpg&refer=http%3A%2F%2Fwww.chinajsjgy.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1622364971&t=f083585df9d670692adb3711765a1128"
-          alt=""
+          alt
         />
       </div>
       <div class="main-title">
@@ -54,7 +63,7 @@
       <div class="main-pic">
         <img
           src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.chinajsjgy.com%2Fvipcom%2Fgentle9257%2F127162289.jpg&refer=http%3A%2F%2Fwww.chinajsjgy.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1622364971&t=f083585df9d670692adb3711765a1128"
-          alt=""
+          alt
         />
       </div>
       <div class="main-title">
@@ -62,9 +71,9 @@
         <div class="main-title-text">上海哲宏福山制作所“经验谈”</div>
       </div>
       <div class="main-h2">原单位管理</div>
-      <div class="main-content">
-        原单位是制造每一个产品时所需要的能源使用量,即能耗原单位=能源使用量/生产数量。实时性原单位实质上反映的是:在生产过程中产量与能耗之间的同步对应关系。因此,节能就是提高生产效率。
-      </div>
+      <div
+        class="main-content"
+      >原单位是制造每一个产品时所需要的能源使用量,即能耗原单位=能源使用量/生产数量。实时性原单位实质上反映的是:在生产过程中产量与能耗之间的同步对应关系。因此,节能就是提高生产效率。</div>
       <div class="main-h2">现场诊断</div>
       <div class="main-content">
         通过现场诊断，对车间内分用途电能消耗情况进行分析,选择重点产线与设备(短期内能够显现效果的为首选对象）进行改善。
@@ -76,9 +85,7 @@
         />
       </div>
       <div class="main-h2">提升品质管理能力</div>
-      <div class="main-content">
-        把握合格率低的生产线、针对瓶颈生产线进行改善
-      </div>
+      <div class="main-content">把握合格率低的生产线、针对瓶颈生产线进行改善</div>
       <div class="main-h2">大幅度降低能耗</div>
       <div class="main-content">
         产量逐年上升,电力负荷持续下降。2017年比1997年削减1,700kW/年。电子基板车间生产原单位,从0.65降低到0.38，削减41%。断路器产线从2012年度0.16
@@ -89,7 +96,7 @@
       <div class="main-pic">
         <img
           src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.chinajsjgy.com%2Fvipcom%2Fgentle9257%2F127162289.jpg&refer=http%3A%2F%2Fwww.chinajsjgy.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1622364971&t=f083585df9d670692adb3711765a1128"
-          alt=""
+          alt
         />
       </div>
     </div>
@@ -97,10 +104,31 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    routerbank() {
+      this.$router.go(-1);
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
+.headernav {
+  /* background: #ffffff; */
+  position: fixed;
+  color: #ffffff;
+  width: 100%;
+  top: 0;
+  box-sizing: border-box;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  line-height: 40px;
+  .title {
+    text-align: center;
+  }
+}
 .details {
   overflow: hidden;
   background: #fff;

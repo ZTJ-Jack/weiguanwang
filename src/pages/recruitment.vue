@@ -8,7 +8,7 @@
     <img src="../assets/images/zppic.png" alt="" style="width:100%;display:block;">
     
     <div class="search">
-        <input type="text" v-model="searchs" placeholder="请输入搜索内容" /><div class="btn" @click="getdata">搜索</div>
+        <input type="text" v-model="searchs" placeholder="请输入搜索内容" /><div class="btn" @click="search">搜索</div>
     </div>
     <div style="padding:10px;" >
         <div  v-for="(item,index) in Datalist" :key="index" @click.stop="showdetail(index)">
@@ -28,7 +28,7 @@
                 <div style="line-height: 30px; background: #666; margin: 10px 0; text-align: center; color: #e8e8e8;">请投递邮箱至：<span>{{item.contact}}</span></div>
             </div>
         </div>
-        <div></div>
+        <div @click="LoadMore" style="text-align:center;">{{LoadMoreText}}</div>
     </div>
   </div>
 </template>
@@ -39,6 +39,7 @@ export default {
 name:'recruitment',
 data() {
     return {
+      LoadMoreText:"加载更多",
       searchs:'',
       page:1,
       limit:10,
@@ -65,6 +66,15 @@ data() {
     routerbank() {
       this.$router.go(-1);
     },
+    LoadMore(){
+      this.LoadMoreText='加载中...'
+      this.page++
+      this.getdata()
+    },
+    search(){
+      this.page=1
+      this.getdata()
+    },
     getdata(){
        let parmas = {
           page: this.page,
@@ -75,11 +85,14 @@ data() {
         getpositionInfo(parmas).then(res=>{
           console.log(res);
           
-          if(res.status==200){
+          if(res.status==200&&res.data.data.length>0){
           // res.data.data.forEach(item => {
           //   // this.$set(item,'createTime',this.timestampToTime(item.createTime))
           // })
-          this.Datalist=res.data.data
+          this.Datalist=[...res.data.data];
+          this.LoadMoreText='加载更多'
+        }else{
+          this.LoadMoreText='没有更多数据了'
         }
         })
     },
