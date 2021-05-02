@@ -7,13 +7,31 @@
     </div>
     <van-swipe :loop="false" >
       <van-swipe-item>
-          <img style="width:100%;height:100vh"  src="../assets/swiper/2.png" alt="">
+        <van-image
+              style="width:100%;height:100vh"
+              class="navImg wow lightSpeedIn"
+              :src="require('../assets/swiper/2.png')"
+              fit="cover"
+            />
+          <!-- <img style="width:100%;height:100vh"  src="../assets/swiper/2.png" alt=""> -->
         </van-swipe-item>
         <van-swipe-item>
-            <img style="width:100%;height:100vh" src="../assets/swiper/1.png" alt="">
+          <van-image
+          style="width:100%;height:100vh"
+              class="navImg wow lightSpeedIn"
+              :src="require('../assets/swiper/1.png')"
+              fit="cover"
+            />
+            <!-- <img style="width:100%;height:100vh" src="../assets/swiper/1.png" alt=""> -->
         </van-swipe-item>
         <van-swipe-item>
-            <img style="width:100%;height:100vh" src="../assets/swiper/3.png" alt="">
+          <van-image
+          style="width:100%;height:100vh"
+              class="navImg wow lightSpeedIn"
+              :src="require('../assets/swiper/3.png')"
+              fit="cover"
+            />
+            <!-- <img style="width:100%;height:100vh" src="../assets/swiper/3.png" alt=""> -->
         </van-swipe-item>
         <!-- <van-swipe-item>
             <img style="width:100%;height:100vh" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20171105%2Fe2343ce075ee4730aa3e14999e0f8c20.png&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1622183257&t=369c223d3833216a7a2771092f15e8d3" alt="">
@@ -101,7 +119,7 @@ export default {
     align-items: center;
     /* margin-top:20px; */
     padding:20px 0;
-        bottom: 50px;
+        bottom: 0;
     div{
         border:1px solid #fff;
         width:80%;

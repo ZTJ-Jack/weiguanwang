@@ -50,7 +50,7 @@
                 >结束</div>
               </div>
               <div style="font-size: 16px; margin: 5px 0">{{ item.exhibitionName }}</div>
-              <div class="h30">{{ item.startTime }}</div>
+              <div class="h30 time">{{ item.startTime}} — {{item.endTime}}</div>
               <div class="h30 address">地址：{{ item.address }}</div>
             </div>
             <div class="right"></div>
@@ -59,7 +59,7 @@
         <div v-if="showindex == index" style="padding: 0 20px" class="wow bounceInUp">
           <!-- <div class="h30">time：{{ item.time }}</div> -->
           <div class="h30">地址：{{ item.address }}</div>
-          <div class="h30">座位号：{{ item.positionNum }}</div>
+          <div class="h30" v-if="item.positionNum">座位号：{{ item.positionNum }}</div>
         </div>
       </div>
       <div></div>
@@ -171,7 +171,7 @@ export default {
       let h = this.change(date.getHours()) + ":";
       let m = this.change(date.getMinutes()) + ":";
       let s = this.change(date.getSeconds());
-      return Y + M + D + h + m + s;
+      return Y + M + D ;
     },
     change(t) {
       if (t < 10) {

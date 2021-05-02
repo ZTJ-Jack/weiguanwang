@@ -185,7 +185,7 @@ export default {
           box-sizing: border-box;
           margin: 5px 6px;
           .itempic {
-            border: 1px black solid;
+            /* border: 1px black solid; */
             width: 100%;
             height: 70px;
             img{

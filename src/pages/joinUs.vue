@@ -39,11 +39,11 @@
              <div class="left">招聘职位</div>
              <div class="right" @click="turnto('/recruitment')">查看全部&nbsp;></div>
           </div>
-         <div class="li">
-             <div class="left">招聘职位</div>
-             <div class="right">工作地点</div>
+         <div class="li"  v-for="(item,index) in Datalist" :key="index">
+             <div class="left">{{item.positionName}}</div>
+             <div class="right">{{item.address}}</div>
          </div>
-         <div class="li">
+         <!-- <div class="li">
              <div class="left">软件开发</div>
              <div class="right">西安</div>
          </div>
@@ -54,26 +54,42 @@
          <div class="li">
              <div class="left">程序员鼓励师</div>
              <div class="right">上海</div>
-         </div>
+         </div> -->
       </div>
    </div>
 </template>
 
 
 <script>
+import {getpositionInfo} from "@/api/api.js";
+
 export default {
   data() {
     return {
-        
+         Datalist: [],
     };
   },
   mounted(){
-   
+   this.getdata()
   },
   methods:{
   turnto(urls){
     this.$router.push(urls)
   }, 
+   getdata(){
+       let parmas = {
+          page: 1,
+          limit: 4,
+          positionName: '',
+          address: '',
+        };
+        getpositionInfo(parmas).then(res=>{
+          console.log(res);
+          if(res.status==200){
+            this.Datalist=res.data.data;
+            }
+        })
+    },
   routerbank() {
       this.$router.go(-1);
     }
